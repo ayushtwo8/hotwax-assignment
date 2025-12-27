@@ -35,5 +35,34 @@ img {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#productContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.product {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .product {
+    width: calc(50% - 16px);
+  }
+}
+
+@media (min-width: 900px) {
+  .product {
+    width: calc(33.33% - 16px);
+  }
+}
+.product img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
 }

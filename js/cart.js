@@ -23,7 +23,7 @@ function loadCart() {
   let totalItems = 0;
   let totalPrice = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item) => {
     totalItems += item.quantity;
     totalPrice += item.price * item.quantity;
 
@@ -49,11 +49,11 @@ function loadCart() {
 
 function changeQty(id, delta) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const item = cart.find(i => i.id === id);
+  const item = cart.find((i) => i.id === id);
 
   item.quantity += delta;
   if (item.quantity <= 0) {
-    cart = cart.filter(i => i.id !== id);
+    cart = cart.filter((i) => i.id !== id);
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -62,7 +62,7 @@ function changeQty(id, delta) {
 
 function removeItem(id) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart = cart.filter(i => i.id !== id);
+  cart = cart.filter((i) => i.id !== id);
   localStorage.setItem("cart", JSON.stringify(cart));
   loadCart();
 }
