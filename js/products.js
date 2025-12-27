@@ -8,11 +8,14 @@ document.getElementById("logout-btn").onclick = () => {
   window.location.href = "index.html";
 };
 
+const loader = document.getElementById("loader");
 const productContainer = document.getElementById("productContainer");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
 
 let products = [];
+
+loader.style.display = "block";
 
 // fetch products
 fetch("https://fakestoreapi.com/products")
@@ -21,6 +24,12 @@ fetch("https://fakestoreapi.com/products")
     products = data;
     loadCategories();
     displayProducts(products);
+  })
+  .catch(() => {
+    loader.textContent = "Failed to load products";
+  })
+  .finally(() => {
+    loader.style.display = "none";
   });
 
 function loadCategories() {
