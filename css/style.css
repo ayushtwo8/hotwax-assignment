@@ -1,0 +1,26 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+input,
+select,
+button,
+a {
+  margin: 8px;
+  padding: 6px;
+}
+.product,
+.cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+img {
+  width: 100px;
+}
+.btn {
+  background: blue;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+}
