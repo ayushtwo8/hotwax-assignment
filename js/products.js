@@ -54,6 +54,10 @@ function displayProducts(list) {
       <h4>${product.title}</h4>
       <p>$${product.price}</p>
       <p>${product.category}</p>
+      <p class="rating">
+    ⭐ ${product.rating.rate} / 5
+    <span class="count">(${product.rating.count})</span>
+  </p>
       <button type="button">Add to Cart</button>
     `;
 
