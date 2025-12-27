@@ -1,8 +1,8 @@
-// REGISTER
+// register
 const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {
-  registerForm.addEventListener("submit", e => {
+  registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const name = document.getElementById("name").value.trim();
@@ -26,11 +26,11 @@ if (registerForm) {
   });
 }
 
-// LOGIN
+// login
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
-  loginForm.addEventListener("submit", e => {
+  loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const email = document.getElementById("loginEmail").value.trim();

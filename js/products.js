@@ -1,4 +1,4 @@
-// AUTH CHECK
+// auth check
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if (!currentUser) window.location.href = "index.html";
 
@@ -14,18 +14,18 @@ const categoryFilter = document.getElementById("categoryFilter");
 
 let products = [];
 
-// FETCH PRODUCTS
+// fetch products
 fetch("https://fakestoreapi.com/products")
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     products = data;
     loadCategories();
     displayProducts(products);
   });
 
 function loadCategories() {
-  const categories = [...new Set(products.map(p => p.category))];
-  categories.forEach(cat => {
+  const categories = [...new Set(products.map((p) => p.category))];
+  categories.forEach((cat) => {
     const option = document.createElement("option");
     option.value = cat;
     option.textContent = cat;
@@ -36,7 +36,7 @@ function loadCategories() {
 function displayProducts(list) {
   productContainer.innerHTML = "";
 
-  list.forEach(product => {
+  list.forEach((product) => {
     const div = document.createElement("div");
     div.className = "product";
 
@@ -56,7 +56,7 @@ function displayProducts(list) {
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  const existing = cart.find(item => item.id === product.id);
+  const existing = cart.find((item) => item.id === product.id);
 
   if (existing) {
     existing.quantity += 1;
@@ -66,7 +66,7 @@ function addToCart(product) {
       title: product.title,
       price: product.price,
       image: product.image,
-      quantity: 1
+      quantity: 1,
     });
   }
 
@@ -78,11 +78,9 @@ function filterProducts() {
   const text = searchInput.value.toLowerCase();
   const cat = categoryFilter.value;
 
-  let filtered = products.filter(p =>
-    p.title.toLowerCase().includes(text)
-  );
+  let filtered = products.filter((p) => p.title.toLowerCase().includes(text));
 
-  if (cat) filtered = filtered.filter(p => p.category === cat);
+  if (cat) filtered = filtered.filter((p) => p.category === cat);
 
   displayProducts(filtered);
 }
